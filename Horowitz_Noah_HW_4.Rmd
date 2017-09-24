@@ -1,0 +1,102 @@
+---
+title: "MSDS 6306 Tibbett 402 Week 4 HW"
+author: "Noah Horowitz"
+date: "9/24/2017"
+output: 
+  html_document:
+    keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#1. FiveThirtyEight Data (30 points): Navigate on GitHub to https://github.com/rudeboybert/fivethirtyeight and read README.md. Seriously, it will include every command you need. Test out some commands on R.
+##A. Install the fivethirtyeight package.
+```{r 1A}
+#install.packages('fivethirtyeight')
+library(fivethirtyeight)
+```
+
+##B. In the listing of Data sets in package ‘fivethirtyeight,’ assign the eighteenth data set to an object ‘df.’
+```{r 1B}
+#18th list is college_recent_grads
+df <- college_recent_grads
+```
+
+##C. Use a more detailed list of the data sets to write out the URL in a comment to the related news story.
+```{r 1C}
+#use vignette command to view detailed list of datasets and find the url
+vignette("fivethirtyeight", package = "fivethirtyeight")
+#http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/
+```
+
+##D. Using R command(s), give the dimensions and column names of this data frame.
+```{r 2B}
+#list number of rows and columns
+dim(df)
+#list the column names
+names(df)
+```
+
+#2. Data Summary (30 points): Use your newly assigned data frame for Question 2.
+##A. Write an R command that gives you the column names of the data frame. Right after that, write one that counts the number of columns but not rows. Hint: The number should match one of your numbers in Question 1d for dimensions.
+```{r 2A}
+#show the names and total number of columns in the dataframe
+names(df)
+ncol(df)u
+```
+##B. Generate a count of each unique major_category in the data frame. I recommend using libraries to help. I have demonstrated one briefly in live-session. To be clear, this should look like a matrix or data frame containing the major_category and the frequency it occurs in the dataset. Assign it to major_count.
+```{r 2B}
+#show the names and total number of columns in the dataframe
+names(df)
+ncol(df)u
+```
+##A. 
+```{r 2C}
+#show the names and total number of columns in the dataframe
+names(df)
+ncol(df)u
+```
+##A.
+```{r 2C}
+#show the names and total number of columns in the dataframe
+names(df)
+ncol(df)u
+```
+
+
+#3. Function Building (30 points): You research sleep and just got your first data set. Later, you’ll have another dataset with the same column names, so you want to create a helper function that you can analyze this dataset and the next. Load sleep_data_01.csv (found at http://talklab.psy.gla.ac.uk/L1_labs/lab_1/homework/index.html). Questions 3A through 3D should be answered in function(x){}. 3E can be outside of the function.
+##A. Create objects for the median Age, the minimum and maximum Duration of sleep, and the mean and standard deviation of the Rosenberg Self Esteem scale (RSES). You may need to specify a few options like in Problem 2 and live session.
+##B. Create a data.frame object called report: it should consist of the median age, the RSES mean and standard deviation respectively divided by five (since there are five questions and these scores are summed), and the range of Duration (the statistical definition of range; it should be a single number.)
+##C. Change the column names of this data.frame to MedianAge, SelfEsteem, SE_SD, and DurationRange.
+##D. Round the report to at most 2 digits: leave this as the closing line to the function.
+```{r 3ABCD}
+#sleep.function takes a dataframe with expected column names as input
+sleep.function <- function(sleep_data){
+  #statistical data is extracted from the input as desired
+  median.age <- median(sleep_data$Age, na.rm = TRUE)
+  min.sleep.time <- min(sleep_data$Duration, na.rm = TRUE)
+  max.sleep.time <- max(sleep_data$Duration, na.rm = TRUE)
+  mean.RSES <- mean(sleep_data$RSES, na.rm = TRUE)
+  sd.RSES <- sd(sleep_data$RSES, na.rm = TRUE)
+  #transformations are performed arrive at the desired outputs
+  single.mean.RSES <- mean.RSES / 5
+  single.sd.RSES <- sd.RSES / 5
+  range.sleep.time <- max.sleep.time - min.sleep.time
+  #desired values are organized into an output dataframe
+  report <- data.frame(median.age, single.mean.RSES, single.sd.RSES, range.sleep.time)
+  colnames(report) <- c('MedianAge', 'SelfEsteem', 'SE_SD', 'DurationRange')
+  row.names(report) <- 'Values'
+  report <- round(report, 2)
+}
+```
+##E. Finally, run the function on your sleep data to show the output.
+```{r 3E}
+#Set the working directory and read the sleep data into a dataframe that will be the argument of the function
+setwd('/Users/noahhorowitz/Google Drive/SMU/17F-Doing_Data_Science/R_working')
+new_data <- read.csv('sleep_data_01.csv')
+#Run the function and print the output
+sleep_report <- sleep.function(new_data)
+print(sleep_report)
+```
