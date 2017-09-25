@@ -83,5 +83,5 @@ write.csv(df, file = 'fivethirtyeight.recent.college.grads.csv', row.names = FAL
 ##C. In one (or more) of the nested directories, post your RMarkdown script, HTML file, and data from ‘fivethirtyeight.’ Make sure that in your README or elsewhere that you credit fivethirtyeight in some way.
 ##D. In your RMarkdown script, please provide the link to this GitHub so the grader can see it.
 ```{r 3}
-#write the data to a csv file without row names
+#https://github.com/noahh4/SMU-DDS-HW/tree/master/Homework
 ```

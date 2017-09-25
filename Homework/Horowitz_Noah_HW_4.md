@@ -15,6 +15,7 @@ library(fivethirtyeight)
 ##B. In the listing of Data sets in package ‘fivethirtyeight,’ assign the eighteenth data set to an object ‘df.’
 
 ```r
+setwd("/Users/noahhorowitz/git_repositories/SMU-DDS-HW/Homework")
 #18th list is college_recent_grads
 df <- college_recent_grads
 ```
@@ -134,34 +135,19 @@ barplot(major_count$freq, names.arg = major_count$x,
 
 ![](Horowitz_Noah_HW_4_files/figure-html/2C-1.png)<!-- -->
 
-##D.
+##D. Write the fivethirtyeight data to a csv file. Make sure that it does not have row labels.
 
 ```r
-#show the names and total number of columns in the dataframe
-names(df)
+#write the data to a csv file without row names
+write.csv(df, file = 'fivethirtyeight.recent.college.grads.csv', row.names = FALSE)
 ```
 
-```
-##  [1] "rank"                        "major_code"                 
-##  [3] "major"                       "major_category"             
-##  [5] "total"                       "sample_size"                
-##  [7] "men"                         "women"                      
-##  [9] "sharewomen"                  "employed"                   
-## [11] "employed_fulltime"           "employed_parttime"          
-## [13] "employed_fulltime_yearround" "unemployed"                 
-## [15] "unemployment_rate"           "p25th"                      
-## [17] "median"                      "p75th"                      
-## [19] "college_jobs"                "non_college_jobs"           
-## [21] "low_wage_jobs"
-```
+#3. Codebook (30 points):
+##A. Start a new repository on GitHub for your SMU MSDS homework. On your local device, make sure there is a directory for Homework at the minimum; you are welcome to add whatever you would like to this repo in addition to your requirements here.
+##B. Create a README.md file which explains the purpose of the repository, the topics included, the sources for the material you post, and contact information in case of questions. Remember, the one in the root directory should be general. You are welcome to make short READMEs for each assignment individually in other folders.
+##C. In one (or more) of the nested directories, post your RMarkdown script, HTML file, and data from ‘fivethirtyeight.’ Make sure that in your README or elsewhere that you credit fivethirtyeight in some way.
+##D. In your RMarkdown script, please provide the link to this GitHub so the grader can see it.
 
 ```r
-ncol(df)
+#https://github.com/noahh4/SMU-DDS-HW/tree/master/Homework
 ```
-
-```
-## [1] 21
-```
-
-
-#3. Function Building (30 points): You research sleep and just got your first data set. Later, you’ll have another dataset with the same column names, so you want to create a helper function that you can analyze this 
