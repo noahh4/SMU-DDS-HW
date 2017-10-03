@@ -155,8 +155,3 @@ girl <- head(girl, 10)
 write.csv(girl[,c(1,5)], file = 'itsagirl.csv', row.names = FALSE)
 ```
 #4. Upload to GitHub (10 points): Push at minimum your RMarkdown for this homework assignment and a Readme file with Codebook to one of your GitHub repositories (you might place this in a Homework repo like last week). It does not have to be too detailed. The Codebook should contain a short definition of each object you create. You are welcome and encouraged to add other files—just make sure you have a description and directions that are helpful for the grader.
-You can also embed plots, for example:
-
-![](Horowitz_Noah_HW_5_files/figure-html/pressure-1.png)<!-- -->
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
