@@ -1,0 +1,9 @@
+URL <- 'http://bit.ly/1jXJgDh'
+temp <- tempfile()
+download.file(URL, temp)
+file.mtime(temp) #outputs date and time
+UDSData <- read.csv(gzfile(temp, 'uds_summary.csv'))
+dim(UDSData) #outputs dimensions
+names(UDSData) #outputs column names
+str(UDSData) #outputs col var types
+unlink(temp)
