@@ -1,1 +1,20 @@
 This is the README
+
+HW5
+
+RAW DATA FILES
+yob2015.txt : raw 2015 names data
+yob2016.txt : raw 2016 names data
+
+R OBJECTS
+df : data frame created from the 2016 data
+row.yyy : index of the row in ‘df’ containing the name error
+y2016 : 2016 data with name error removed
+y2015 : data frame created from the 2015 data
+final : merged 2015 and 2016 data, ordered and including total frequency
+girl : ‘final’ filtered to contain only girls names
+
+OUTPUT FILES
+itsagirl.csv : output csv file of the top 10 girls names and their totals
+Horowitz_Noah_HW_5.Rmd : R markdown file for HW5
+Horowitz_Noah_HW_5.Html : HTML output of HW5
